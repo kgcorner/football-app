@@ -1,0 +1,28 @@
+@import '../styles.scss';
+
+.fill-space {
+    flex: 1 1 auto;
+}
+.content{
+    margin-top:70px;
+}
+.menu {
+    width: 150px;
+    font-size: 15px;
+    font-weight: 100;
+    cursor: pointer;
+    text-align: center;
+}
+
+.menu:hover {
+    background: mat-color($candy-app-accent, A400);
+    border-radius: 5px;
+    font-weight: 400;
+}
+.menu a {
+    color:white;
+    text-decoration: none;
+}
+.app-container {
+    margin:25px;
+}
