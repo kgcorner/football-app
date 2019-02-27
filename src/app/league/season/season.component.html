@@ -1,0 +1,10 @@
+<mat-card class="season-card">        
+    <img src="{{season.winner.crestUrl}}" alt="{{season.winner.name}}" height="64"/>
+    <div *ngIf="season.winner;else ongoing">        
+        <h3>{{winnerName}}</h3>
+    </div>
+    <ng-template #ongoing>
+        <h3>Ongoing</h3>
+    </ng-template>
+    <h5>{{endYear}}</h5>
+</mat-card>

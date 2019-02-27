@@ -1,0 +1,7 @@
+<img src="{{league.emblemUrl}}" class="league-header-item" width="64" /> <h2 class="league-header-item">{{league.name}} ({{league.code}})</h2> - <h4 class="league-header-item" >{{league.area.name}}</h4>
+<h2>Seasons</h2>
+<div *ngIf="league.seasons" class="season-container">
+        <div *ngFor="let season of league.seasons" style="margin-top:10px">
+            <app-season [season]="season" ></app-season>
+        </div>
+</div>

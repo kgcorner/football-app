@@ -1,0 +1,11 @@
+.league-header-item {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.season-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

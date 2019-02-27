@@ -1,0 +1,17 @@
+.leagues-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.paging-container {
+    width: 100%;
+    height: 35px;
+    text-align: right;
+
+}
+.page {
+    display: inline-block;
+    flex-direction: row;
+    width:25px;
+}
