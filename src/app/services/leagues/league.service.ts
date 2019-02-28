@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../http.service';
 import { League } from '../../models/league';
 import { Plan } from '../../models/plan';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeagueService {
-  private GET_ALL_LEAGUES_URL =  'http://api.football-data.org/v2/competitions';
-  private GET_LEAGUES_BY_AREA_URL =  'http://api.football-data.org/v2/competitions?areas=%d';
-  private GET_LEAGUES_BY_PLAN_URL =  'http://api.football-data.org/v2/competitions?plan=%s';
-  private GET_LEAGUES_BY_AREA_PLAN_URL =  'http://api.football-data.org/v2/competitions?areas=%d&plan=%s';
-  private GET_LEAGUE_DETAIL_URL =  'http://api.football-data.org/v2/competitions/%d';
+  private GET_ALL_LEAGUES_URL =  environment.api_host_address+'/competitions';
+  private GET_LEAGUES_BY_AREA_URL =  environment.api_host_address+'/competitions?areas=%d';
+  private GET_LEAGUES_BY_PLAN_URL =  environment.api_host_address+'/competitions?plan=%s';
+  private GET_LEAGUES_BY_AREA_PLAN_URL =  environment.api_host_address+'/competitions?areas=%d&plan=%s';
+  private GET_LEAGUE_DETAIL_URL =  environment.api_host_address+'/competitions/%d';
   
   constructor(private http : HttpService) { }
 

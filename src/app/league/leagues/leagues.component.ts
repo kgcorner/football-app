@@ -15,12 +15,12 @@ import { Observable } from 'rxjs';
 })
 export class LeaguesComponent implements OnInit {
 
-  private leagues: Observable<Array<League>> = this.store.select('league');
-  private current_page : number = 0;
-  private max_league_count_per_page : number = 12;
-  private pages : Array<any>;
-  private paged_leagues : Array<League>
-  /*constructor(private leagueService: LeagueService, private router: Router) {
+  public leagues: Observable<Array<League>>;
+  public current_page : number = 0;
+  public max_league_count_per_page : number = 12;
+  public pages : Array<any>;
+  public paged_leagues : Array<League>
+  /*constructor(public leagueService: LeagueService, public router: Router) {
     console.log("called constructor");
    }
 
@@ -42,7 +42,16 @@ export class LeaguesComponent implements OnInit {
   }*/
 
 
-  constructor(private store : Store<LeagueState>, private router : ActivatedRoute) {}
+  constructor(public store : Store<LeagueState>, public router : Router) {
+    this.leagues = this.store.select('league');
+    this.leagues.subscribe((res) => {
+      if(res) {
+        this.paged_leagues = res["leagues"]["0"];
+        console.log(this.paged_leagues);
+      }
+        
+    })
+  }
   
   ngOnInit() {
     this.store.dispatch(new LoadLeaguesAction());
@@ -60,9 +69,9 @@ export class LeaguesComponent implements OnInit {
   //   this.paged_leagues = this.leagues.slice(startFrom, upto);
   // }
 
-  // showLeagueInfo(leagueId) {
-  //   console.log("navigating to leagues/" + leagueId);
-  //   this.router.navigate(['./leagues/' + leagueId]);
-  // }
+  showLeagueInfo(leagueId) {
+    console.log("navigating to leagues/" + leagueId);
+    this.router.navigate(['./leagues/' + leagueId]);
+  }
 
 }

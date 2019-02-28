@@ -10,9 +10,9 @@ import { League } from '../../models/league';
 })
 export class LeagueInfoComponent implements OnInit {
 
-  private leagueId : number;
-  private league : League;
-  constructor(private route: ActivatedRoute, private leagueService : LeagueService) { 
+  public leagueId : number;
+  public league : League;
+  constructor(public route: ActivatedRoute, public leagueService : LeagueService) { 
 
   }
 
@@ -21,6 +21,9 @@ export class LeagueInfoComponent implements OnInit {
         this.leagueId = params['id'];
         this.leagueService.getLeagueDetails(this.leagueId).subscribe((res) => {
           this.league = res.body;
+          if(!this.league.emblameUrl) {
+            this.league.emblameUrl = "/assets/images/no-logo-league.png";
+          }
         })
     });
   }

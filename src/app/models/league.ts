@@ -11,5 +11,6 @@ export class League {
     currentSeason: Season;
     numberOfAvailableSeasons: number;
     lastUpdated: Date;
-    seasons: Array<Season>
+    seasons: Array<Season>;
+    code: string
 }

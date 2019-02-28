@@ -10,7 +10,7 @@ import { Plan } from 'src/app/models/plan';
 @Injectable()
 export class LeagueEffect {
     
-    constructor(private action : Actions, private leagueService: LeagueService) { }
+    constructor(public action : Actions, public leagueService: LeagueService) { }
 
     @Effect()
     loadLeagues = this.action
