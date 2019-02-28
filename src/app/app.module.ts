@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { LeagueModule } from './league/league.module';
 import { ShareModule } from './share/share.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ShareModule } from './share/share.module';
     BrowserModule,
     AppRoutingModule,   
     ShareModule,
-    LeagueModule
+    LeagueModule,
+    StoreModule.forRoot([]),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

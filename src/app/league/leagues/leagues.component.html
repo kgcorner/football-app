@@ -1,11 +1,11 @@
 <h3> Leagues </h3>
-<div *ngIf="pages" class="paging-container">        
+<!-- <div *ngIf="pages" class="paging-container">        
     <div *ngFor="let p of pages" class="page">
         <div href="#" (click)="changePage(p)" style="color:blue; cursor: pointer;" >{{p}}</div>
     </div>
-</div>
-<div *ngIf="paged_leagues" class="leagues-container">
-    <div *ngFor="let league of paged_leagues" style="margin-top:10px">
+</div> -->
+<div *ngIf="leagues|async" class="leagues-container">
+    <div *ngFor="let league of leagues|async" style="margin-top:10px">
         <app-league [league]="league" (click)="showLeagueInfo(league.id)" ></app-league>        
     </div>
 </div>
